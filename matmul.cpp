@@ -6,9 +6,9 @@
 // #define n 1000
 // #define p 1000
  
-#define m 2000
-#define n 2000
-#define p 2000
+#define m 1000
+#define n 1000
+#define p 1000
 // int var = 25;
 using namespace std;
 int a[m][n];
@@ -42,6 +42,12 @@ int main(){
   			b[i][j] = getrandomval();
   		}
   	}
+  	for (int i=0;i<n;i++){
+  		for (int j=0;j<p;j++){
+  			b[i][j] = getrandomval();
+  		}
+  	}
+
 	// END: Init matrix here
   	time_begin = omp_get_wtime();
 	// for (int i =0;i<m;i++){
@@ -61,10 +67,11 @@ int main(){
   	// omp_set_dynamic(0);
   	// omp_set_num_threads(200);
   	// OMP_
-  	#pragma omp parallel for collapse(2)
+
+  	#pragma omp parallel for collapse(3)
 	for (int i =0;i<m;i++){
 		for (int j=0;j<p;j++){
-			c[i][j] = 0 ;
+			// c[i][j] = 0 ;
 			for (int k=0;k<n;k++){
 				c[i][j] = c[i][j] + (a[i][k]*b[k][j]);
   				// cout<<omp_get_num_threads()<<endl;
