@@ -5,17 +5,15 @@
 #include <algorithm>
 using namespace std;
 // using namespace std;
-int a[5000];
+int a[10];
 int getrandomval()
 {
-	int x = rand() % 5000 + 1;
-	return x;
+	return rand() % 5000;
 }
-
 int partition(int arr[], int low, int high){
-	pivot = arr[high];
-	i = (low - 1)
-	for (j = low; j <= high- 1; j++)
+	int pivot = arr[high];
+	int i = (low - 1);
+	for (int j = low; j <= high- 1; j++)
     {
     	if (arr[j] < pivot)
         {
@@ -24,24 +22,26 @@ int partition(int arr[], int low, int high){
         }
     }
     swap(arr[i+1],arr[high]);
-    return i+ 1
-
+    return i + 1;
 }
-
 int quicksort(int arr[], int low, int high){
 
-	pi = partition(arr,high,low)
-	quicksort(arr, low, pi-1)
-	quicksort(arr, pi, high)
+	int pi = partition(arr,high,low);
+	quicksort(arr, low, pi-1);
+	quicksort(arr, pi, high);
 }
-
 int main(){
-	for (int i=0;i<m;i++){
-  		a[i][j] = getrandomval();
+	cout<<"asdfasdf";
+	for (int i=0;i<sizeof(a)/sizeof(a[0]);i++){
+  		a[i] = getrandomval();
   	}
 
 
+  	quicksort(a,0,sizeof(a)/sizeof(a[0]));
 
-	#pragma omp task
+  	for (int i=0;i<sizeof(a)/sizeof(a[0]);i++){
+  		cout<<a[i];
+  	}
+  	return 0;
 
 }
